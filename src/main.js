@@ -13,7 +13,7 @@ const searchButton = document.querySelector('.search-btn');
 const gallery = document.querySelector('.gallery');
 const container = document.querySelector('.container');
 
-let lightbox = new SimpleLightbox('.gallery a', {
+const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
     captionDelay: 250,
     className: 'lightbox-on',
@@ -75,7 +75,7 @@ let lightbox = new SimpleLightbox('.gallery a', {
 
 function galleryCreation(imagesArray) {
     const markup = imagesArray
-      .toSorted((a, b) => b.likes - a.likes)
+      .sort((a, b) => b.likes - a.likes)
       .map(({  webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {
         return `<li class="gallery-item"><div class='image-wrapper'>
     <a class="gallery-link" href="${largeImageURL}">
@@ -89,19 +89,19 @@ function galleryCreation(imagesArray) {
     </a>
     <div class="gallery-item-description">
         <ul class='gallery-item-description-list'>
-            <li class='description-list-item'>
+            <li class='gallery-description-list-item'>
                 <p class='description'>Likes</p>
                 <p class='quantity'>${likes}</p>
             </li>
-            <li class='description-list-item'>
+            <li class='gallery-description-list-item'>
                 <p class='description'>Views</p>
                 <p class='quantity'>${views}</p>
             </li>
-            <li class='description-list-item'>
+            <li class='gallery-description-list-item'>
                 <p class='description'>Comments</p>
                 <p class='quantity'>${comments}</p>
             </li>
-            <li class='description-list-item'>
+            <li class='gallery-description-list-item'>
                 <p class='description'>Downloads</p>
                 <p class='quantity'>${downloads}</p>
             </li>
