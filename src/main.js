@@ -49,6 +49,7 @@ let lightbox = new SimpleLightbox('.gallery a', {
   
     fetch(`https://pixabay.com/api/?${searchingOptions}`)
     .then(response => {
+     
       return response.json();
     })
     .then(api => {
@@ -116,7 +117,7 @@ function galleryCreation(imagesArray) {
 
 
   function addLoading() {
-    container.insertAdjacentHTML('afterbegin', '<span class="loader"></span>');
+    container.insertAdjacentHTML('afterbegin', '<div class="loader"></div>');
     searchButton.disabled = true;
     searchButton.classList.add('search-btn-disabled');
   }
